@@ -7,10 +7,12 @@ import (
 	"strings"
 )
 
+// See https://securego.io/docs/rules/g304.html
+
 func fail_G304() {
 	repoFile := "/safe/path/../../private/path"
 	if !strings.HasPrefix(repoFile, "/safe/path/") {
-		panic(fmt.Errorf("Unsafe input"))
+		panic(fmt.Errorf("unsafe input"))
 	}
 	byContext, err := ioutil.ReadFile(repoFile)
 	if err != nil {
@@ -23,7 +25,7 @@ func pass_G304() {
 	repoFile := "/safe/path/../../private/path"
 	repoFile = filepath.Clean(repoFile)
 	if !strings.HasPrefix(repoFile, "/safe/path/") {
-		panic(fmt.Errorf("Unsafe input"))
+		panic(fmt.Errorf("unsafe input"))
 	}
 	byContext, err := ioutil.ReadFile(repoFile)
 	if err != nil {

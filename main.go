@@ -3,5 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("hello!")
+	fmt.Println("hello world!")
+	fail_G304()
+	pass_G304()
 }
