@@ -30,6 +30,14 @@ func fail_G304p2() {
 	fmt.Printf("%s", string(byContext))
 }
 
+func fail_G304p3(fname string) {
+	byContext, err := ioutil.ReadFile(fname)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("%s", string(byContext))
+}
+
 func pass_G304() {
 	repoFile := "/safe/path/../../private/path"
 	repoFile = filepath.Clean(repoFile)
